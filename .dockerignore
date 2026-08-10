@@ -3,4 +3,7 @@
 # Bổ sung đủ các mục còn thiếu — xem tests/test_cp2.py để biết yêu cầu.
 
 .git
-.gitignore
+.venv
+__pycache__
+.env
+
