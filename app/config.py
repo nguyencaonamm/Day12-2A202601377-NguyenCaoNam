@@ -44,6 +44,15 @@ class Settings(BaseSettings):
     #     port: int = 8000
     #     agent_api_key: str
 
+    # agent_api_key: str không hề có dấu = đằng sau, tức là nó không có giá trị mặc định.
+    # Nếu lúc chạy mà thiếu biến này, Pydantic sẽ báo lỗi ngay lập tức
+    port: int = 8000
+    agent_api_key: str
+    redis_url: str = "redis://localhost:6379/0"
+    rate_limit_per_minute: int = 10
+    monthly_budget_usd: float = 10.0
+    log_level: str = "INFO"
+
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
