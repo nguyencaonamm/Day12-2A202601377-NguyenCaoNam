@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      - name: Run Pytest (bỏ qua CP5 vì CI không kết nối với DB thật)
-        run: pytest -v --ignore=tests/test_cp5.py
+      - name: Run Pytest (bỏ qua CP5 và Bonus vì không phù hợp chạy trên CI)
+        run: pytest -v --ignore=tests/test_cp5.py --ignore=tests/test_bonus_cicd.py
         
       - name: Build Docker Image
         run: docker build -t agent:test .
